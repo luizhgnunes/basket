@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Basket.Common\Basket.Common.csproj" />
   </ItemGroup>
 
 </Project>
