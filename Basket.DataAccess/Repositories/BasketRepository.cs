@@ -1,6 +1,8 @@
-﻿namespace Basket.DataAccess.Repositories
+﻿using Basket.Common.Interfaces.Repository;
+
+namespace Basket.DataAccess.Repositories
 {
-    internal class BasketRepository
+    internal class BasketRepository : IBasketRepository
     {
         public bool Add(Common.Models.Basket basket)
         {
