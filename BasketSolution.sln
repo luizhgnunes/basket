@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Common", "Basket.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.BusinessLogic", "Basket.BusinessLogic\Basket.BusinessLogic.csproj", "{73BF004B-736A-484E-9349-E0B8FD90A7FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.DataAccess", "Basket.DataAccess\Basket.DataAccess.csproj", "{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{73BF004B-736A-484E-9349-E0B8FD90A7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73BF004B-736A-484E-9349-E0B8FD90A7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73BF004B-736A-484E-9349-E0B8FD90A7FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

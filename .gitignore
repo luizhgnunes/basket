@@ -3,9 +3,11 @@
 ################################################################################
 
 /.vs
-/Basket.Api/obj
 /Basket.Api/bin
-/Basket.Common/obj
-/Basket.BusinessLogic/obj
-/Basket.BusinessLogic/bin
+/Basket.Api/obj
 /Basket.Common/bin
+/Basket.Common/obj
+/Basket.BusinessLogic/bin
+/Basket.BusinessLogic/obj
+/Basket.DataAccess/bin
+/Basket.DataAccess/obj
