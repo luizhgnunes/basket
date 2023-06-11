@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Api", "Basket.Api\Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Common", "Basket.Common\Basket.Common.csproj", "{AA3ABE00-29E9-4AEB-B607-101BA7A8A793}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.BusinessLogic", "Basket.BusinessLogic\Basket.BusinessLogic.csproj", "{73BF004B-736A-484E-9349-E0B8FD90A7FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AA3ABE00-29E9-4AEB-B607-101BA7A8A793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA3ABE00-29E9-4AEB-B607-101BA7A8A793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA3ABE00-29E9-4AEB-B607-101BA7A8A793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73BF004B-736A-484E-9349-E0B8FD90A7FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73BF004B-736A-484E-9349-E0B8FD90A7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73BF004B-736A-484E-9349-E0B8FD90A7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73BF004B-736A-484E-9349-E0B8FD90A7FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

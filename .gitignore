@@ -6,3 +6,6 @@
 /Basket.Api/obj
 /Basket.Api/bin
 /Basket.Common/obj
+/Basket.BusinessLogic/obj
+/Basket.BusinessLogic/bin
+/Basket.Common/bin
