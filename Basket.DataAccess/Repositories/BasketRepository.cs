@@ -4,7 +4,7 @@ using Basket.DataAccess.Data;
 
 namespace Basket.DataAccess.Repositories
 {
-    internal class BasketRepository : IBasketRepository
+    public class BasketRepository : IBasketRepository
     {
         public bool Add(Common.Models.Basket basket)
         {
