@@ -1,4 +1,6 @@
 ﻿using Basket.BusinessLogic;
+using Basket.Common;
+using Basket.Common.Interfaces;
 using Basket.Common.Interfaces.BusinessLogic;
 using Basket.Common.Interfaces.Repository;
 using Basket.DataAccess.Repositories;
@@ -9,6 +11,9 @@ namespace Basket.Api.Bootstrappers
     {
         internal static void AddDependencies(this IServiceCollection services)
         {
+            services.AddSingleton<IConfigurationCache, ConfigurationCache>();
+            services.AddSingleton<CodeChallengeApiClient>();
+
             services.AddSingleton<ILoginBusinessLogic, LoginBusinessLogic>();
             services.AddSingleton<IBasketBusinessLogic, BasketBusinessLogic>();
             services.AddSingleton<IProductBusinessLogic, ProductBusinessLogic>();
