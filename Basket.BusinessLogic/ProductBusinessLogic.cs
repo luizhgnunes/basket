@@ -1,4 +1,5 @@
 ﻿using Basket.Common.CodeChallengeApi;
+using Basket.Common.CustomExceptions;
 using Basket.Common.Interfaces;
 using Basket.Common.Interfaces.BusinessLogic;
 using Basket.Common.Models;
@@ -32,7 +33,7 @@ namespace Basket.BusinessLogic
         {
             var maxPageSize = _configurationCache.Get<int>("Pagination:MaxPageSize");
             if (pageSize > maxPageSize)
-                throw new InvalidOperationException($"The page size must be less than or equal to {maxPageSize}.");
+                throw new CustomHttpException($"The page size must be less than or equal to {maxPageSize}.", System.Net.HttpStatusCode.BadRequest);
             var token = await _loginBusinessLogic.GetTokenAsync();
             var request = new RestRequest(Endpoints.GET_ALL_PRODUCTS_ENDPOINT)
                 .AddHeader("Authorization", $"Bearer {token}");
