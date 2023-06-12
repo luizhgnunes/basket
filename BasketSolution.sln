@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.BusinessLogic", "Bas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.DataAccess", "Basket.DataAccess\Basket.DataAccess.csproj", "{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{C1157935-D9D7-40C2-BE77-399F9853804D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.UnitTests", "Basket.UnitTests\Basket.UnitTests.csproj", "{A0920DAA-0857-429D-B3B0-B41FB6C3B2DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A72F9F59-C40A-43E8-81C7-ED0991BB1BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0920DAA-0857-429D-B3B0-B41FB6C3B2DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0920DAA-0857-429D-B3B0-B41FB6C3B2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0920DAA-0857-429D-B3B0-B41FB6C3B2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0920DAA-0857-429D-B3B0-B41FB6C3B2DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0920DAA-0857-429D-B3B0-B41FB6C3B2DE} = {C1157935-D9D7-40C2-BE77-399F9853804D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {86F93B73-382C-49BF-A23A-42A122937D7D}

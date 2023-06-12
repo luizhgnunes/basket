@@ -11,3 +11,5 @@
 /Basket.BusinessLogic/obj
 /Basket.DataAccess/bin
 /Basket.DataAccess/obj
+/Basket.UnitTests/bin
+/Basket.UnitTests/obj
