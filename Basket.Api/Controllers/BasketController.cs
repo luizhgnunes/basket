@@ -15,6 +15,10 @@ namespace Basket.Api.Controllers
             _basketBusinessLogic = basketBusinessLogic;
         }
 
+        /// <summary>
+        /// Get all baskets.
+        /// </summary>
+        /// <returns>A list of <see cref="Common.Models.Basket"/></returns>
         // GET api/basket
         [HttpGet]
         public async Task<ActionResult<Common.Models.Basket>> GetAll()
@@ -23,6 +27,11 @@ namespace Basket.Api.Controllers
             return Ok(baskets);
         }
 
+        /// <summary>
+        /// Get basket by id.
+        /// </summary>
+        /// <param name="id">Basket id.</param>
+        /// <returns><see cref="Common.Models.Basket"/></returns>
         // GET api/basket/11111111-1111-1111-1111-111111111111
         [HttpGet("{id}")]
         public async Task<ActionResult<Common.Models.Basket>> Get(Guid id)
@@ -31,6 +40,11 @@ namespace Basket.Api.Controllers
             return Ok(basket);
         }
 
+        /// <summary>
+        /// Cretate a basket.
+        /// </summary>
+        /// <param name="orderRequest"><see cref="OrderRequest"/></param>
+        /// <returns></returns>
         // POST api/basket
         [HttpPost]
         public async Task<ActionResult<Common.Models.Basket>> PostCreateBasket(OrderRequest orderRequest)
@@ -39,6 +53,11 @@ namespace Basket.Api.Controllers
             return Ok(basket);
         }
 
+        /// <summary>
+        /// Update a basket.
+        /// </summary>
+        /// <param name="basket">The <see cref="Common.Models.Basket"/>.</param>
+        /// <returns></returns>
         // PUT api/basket
         [HttpPut]
         public async Task<ActionResult<Common.Models.Basket>> PutUpdateBasket(Common.Models.Basket basket)
@@ -47,6 +66,11 @@ namespace Basket.Api.Controllers
             return Ok(basket);
         }
 
+        /// <summary>
+        /// Delete a basket by id.
+        /// </summary>
+        /// <param name="id">Basket id.</param>
+        /// <returns>A message informing if the deletion occurred successfully or not.</returns>
         // DELETE api/basket/11111111-1111-1111-1111-111111111111
         [HttpDelete("{id}")]
         public async Task<ActionResult<string>> Delete(Guid id)

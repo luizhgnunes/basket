@@ -15,6 +15,12 @@ namespace Basket.Api.Controllers
             _orderBusinessLogic = orderBusinessLogic;
         }
 
+        /// <summary>
+        /// Create a order related to the <see cref="Common.Models.Basket"/> passed in.
+        /// It will call the Code Challenge API.
+        /// </summary>
+        /// <param name="basketId">The basket id.</param>
+        /// <returns><see cref="OrderResponse"/></returns>
         // POST api/order
         [HttpPost]
         public async Task<ActionResult<OrderResponse>> PostCreateOrder(Guid basketId)

@@ -6,6 +6,7 @@ namespace Basket.Common.Attibutes
 {
     public class CustomExceptionFilterAttribute : ExceptionFilterAttribute
     {
+        /// <inheritdoc />
         public override void OnException(ExceptionContext context)
         {
             if (context.Exception is CustomHttpException customHttpException)
