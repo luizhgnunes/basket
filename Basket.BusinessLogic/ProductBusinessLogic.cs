@@ -1,4 +1,5 @@
 ﻿using Basket.Common.CodeChallengeApi;
+using Basket.Common.Interfaces;
 using Basket.Common.Interfaces.BusinessLogic;
 using Basket.Common.Models;
 using RestSharp;
@@ -8,11 +9,13 @@ namespace Basket.BusinessLogic
     public class ProductBusinessLogic : IProductBusinessLogic
     {
         private readonly CodeChallengeApiClient _client;
+        private readonly IConfigurationCache _configurationCache;
         private readonly ILoginBusinessLogic _loginBusinessLogic;
 
-        public ProductBusinessLogic(CodeChallengeApiClient client, ILoginBusinessLogic loginBusinessLogic)
+        public ProductBusinessLogic(CodeChallengeApiClient client, IConfigurationCache configurationCache, ILoginBusinessLogic loginBusinessLogic)
         {
             _client = client;
+            _configurationCache = configurationCache;
             _loginBusinessLogic = loginBusinessLogic;
         }
 
@@ -27,6 +30,9 @@ namespace Basket.BusinessLogic
 
         public async Task<IEnumerable<ProductResponse>> GetProductCatalogAsync(int pageSize = 100, int pageNumber = 1)
         {
+            var maxPageSize = _configurationCache.Get<int>("Pagination:MaxPageSize");
+            if (pageSize > maxPageSize)
+                throw new InvalidOperationException($"The page size must be less than or equal to {maxPageSize}.");
             var token = await _loginBusinessLogic.GetTokenAsync();
             var request = new RestRequest(Endpoints.GET_ALL_PRODUCTS_ENDPOINT)
                 .AddHeader("Authorization", $"Bearer {token}");
