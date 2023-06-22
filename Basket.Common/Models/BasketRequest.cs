@@ -3,6 +3,6 @@
     public class BasketRequest
     {
         public string UserEmail { get; set; }
-        public List<Product> Products { get; set; }
+        public List<BasketRequestProduct> Products { get; set; }
     }
 }

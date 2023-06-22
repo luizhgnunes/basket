@@ -1,5 +1,6 @@
 ﻿using AutoFixture;
 using Basket.BusinessLogic;
+using Basket.Common.Interfaces.BusinessLogic;
 using Basket.Common.Interfaces.Repository;
 using Basket.Common.Models;
 using Moq;
@@ -10,6 +11,7 @@ namespace Basket.UnitTests.BusinessLogic
     {
         private readonly Fixture _fixture;
         private readonly Mock<IBasketRepository> _basketRepository;
+        private readonly Mock<IProductBusinessLogic> _productBusinessLogic;
 
         private BasketBusinessLogic _sut;
 
@@ -17,14 +19,15 @@ namespace Basket.UnitTests.BusinessLogic
         {
             _fixture = new Fixture();
             _basketRepository = new Mock<IBasketRepository>();
-            _sut = new BasketBusinessLogic(_basketRepository.Object);
+            _productBusinessLogic = new Mock<IProductBusinessLogic>();
+            _sut = new BasketBusinessLogic(_basketRepository.Object, _productBusinessLogic.Object);
         }
 
         [Fact]
         public async Task CreateBasketAsyncShouldCallAdd()
         {
             //Arrange
-            var orderRequest = _fixture.Create<OrderRequest>();
+            var orderRequest = _fixture.Create<BasketRequest>();
             //Act
             await _sut.CreateBasketAsync(orderRequest);
             //Assert
