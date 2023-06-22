@@ -4,8 +4,7 @@ using Basket.Api.Bootstrappers;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDependencies();
-builder.Services.AddControllers();
-builder.Services.AddControllersWithViews(options =>
+builder.Services.AddControllers(options =>
 {
     options.Filters.Add<CustomExceptionFilterAttribute>();
 });

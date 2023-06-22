@@ -20,6 +20,15 @@ namespace Basket.BusinessLogic
             _loginBusinessLogic = loginBusinessLogic;
         }
 
+        public async Task<ProductResponse> GetProductByIdAsync(int productId)
+        {
+            var token = await _loginBusinessLogic.GetTokenAsync();
+            var request = new RestRequest(Endpoints.GET_ALL_PRODUCTS_ENDPOINT)
+                .AddHeader("Authorization", $"Bearer {token}");
+            var products = await _client.GetAsync<IEnumerable<ProductResponse>>(request);
+            return products.FirstOrDefault(p => p.Id == productId);
+        }
+
         public async Task<IEnumerable<ProductResponse>> GetTopRankedProductsAsync(int totalProducts)
         {
             var token = await _loginBusinessLogic.GetTokenAsync();

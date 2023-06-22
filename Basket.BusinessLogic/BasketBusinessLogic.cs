@@ -1,4 +1,5 @@
-﻿using Basket.Common.Interfaces.BusinessLogic;
+﻿using Basket.Common.CustomExceptions;
+using Basket.Common.Interfaces.BusinessLogic;
 using Basket.Common.Interfaces.Repository;
 using Basket.Common.Models;
 
@@ -7,17 +8,42 @@ namespace Basket.BusinessLogic
     public class BasketBusinessLogic : IBasketBusinessLogic
     {
         private readonly IBasketRepository _basketRepository;
+        private readonly IProductBusinessLogic _productBusinessLogic;
 
-        public BasketBusinessLogic(IBasketRepository basketRepository)
+        public BasketBusinessLogic(IBasketRepository basketRepository, IProductBusinessLogic productBusinessLogic)
         {
             _basketRepository = basketRepository;
+            _productBusinessLogic = productBusinessLogic;
         }
 
-        public Task<Common.Models.Basket> CreateBasketAsync(OrderRequest orderRequest)
+        public async Task<Common.Models.Basket> CreateBasketAsync(BasketRequest basketRequest)
         {
-            var basket = new Common.Models.Basket(Guid.NewGuid(), orderRequest);
+            if (basketRequest.Products.Any(p => p.productId <= 0))
+                throw new CustomHttpException("Product id is required.", System.Net.HttpStatusCode.BadRequest);
+            if (basketRequest.Products.Any(p => p.quantity <= 0))
+                throw new CustomHttpException("The quantity must be greater than 0.", System.Net.HttpStatusCode.BadRequest);
+
+            var basket = new Common.Models.Basket();
+            basket.OrderRequest.UserEmail = basketRequest.UserEmail;
+
+            foreach (var p in basketRequest.Products)
+            {
+                var product = await _productBusinessLogic.GetProductByIdAsync(p.productId);
+                if (product == null)
+                    throw new CustomHttpException($"Product with the id {p.productId} was not found.", System.Net.HttpStatusCode.NotFound);
+                var orderLine = new OrderLine
+                {
+                    ProductId = product.Id,
+                    ProductName = product.Name,
+                    ProductUnitPrice = product.Price,
+                    ProductSize = product.Size.ToString(),
+                    Quantity = p.quantity
+                };
+                basket.OrderRequest.OrderLines.Add(orderLine);
+            }
+
             _basketRepository.Add(basket);
-            return Task.FromResult(basket);
+            return await Task.FromResult(basket);
         }
 
         public Task<IEnumerable<Common.Models.Basket>> GetAllBasketsAsync()

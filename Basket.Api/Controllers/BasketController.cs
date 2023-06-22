@@ -43,11 +43,11 @@ namespace Basket.Api.Controllers
         /// <summary>
         /// Cretate a basket.
         /// </summary>
-        /// <param name="orderRequest"><see cref="OrderRequest"/></param>
+        /// <param name="orderRequest"><see cref="BasketRequest"/></param>
         /// <returns></returns>
         // POST api/basket
         [HttpPost]
-        public async Task<ActionResult<Common.Models.Basket>> PostCreateBasket(OrderRequest orderRequest)
+        public async Task<ActionResult<Common.Models.Basket>> PostCreateBasket(BasketRequest orderRequest)
         {
             var basket = await _basketBusinessLogic.CreateBasketAsync(orderRequest);
             return Ok(basket);

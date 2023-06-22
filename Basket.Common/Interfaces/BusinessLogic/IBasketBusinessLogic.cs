@@ -4,7 +4,7 @@ namespace Basket.Common.Interfaces.BusinessLogic
 {
     public interface IBasketBusinessLogic
     {
-        Task<Models.Basket> CreateBasketAsync(OrderRequest orderRequest);
+        Task<Models.Basket> CreateBasketAsync(BasketRequest basketRequest);
         Task<IEnumerable<Models.Basket>> GetAllBasketsAsync();
         Task<Models.Basket> GetBasketAsync(Guid basketId);
         Task<Models.Basket> UpdateBasketAsync(Models.Basket basket);
